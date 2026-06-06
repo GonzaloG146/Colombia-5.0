@@ -38,7 +38,9 @@ const terminos = [
   { t: "Reconocimiento Facial", d: "Tecnología de IA que identifica o verifica la identidad de una persona analizando los rasgos de su rostro en imágenes o video. Aplicada en seguridad, vigilancia y búsqueda de personas desaparecidas." },
   { t: "Nivel C5", d: "Estándar de seguridad en la nube de alto nivel que garantiza la protección de datos sensibles mediante controles rigurosos de acceso, cifrado y auditoría. CamClouds7 opera bajo este estándar." },
   { t: "TensorFlow", d: "Plataforma de código abierto de Google para el desarrollo y entrenamiento de modelos de machine learning e IA, ampliamente utilizada en visión computacional y procesamiento de lenguaje natural." },
-  { t: "Nine Years of Shadows", d: "Videojuego desarrollado por HALBERD Studios bajo la dirección de Constantino Valenzuela, inspirado en Castlevania. Financiado parcialmente a través de Kickstarter y primer proyecto a gran escala del estudio." }
+  { t: "Nine Years of Shadows", d: "Videojuego desarrollado por HALBERD Studios bajo la dirección de Constantino Valenzuela, inspirado en Castlevania. Financiado parcialmente a través de Kickstarter y primer proyecto a gran escala del estudio." },
+  { t: "IoT (Internet of Things)", d: "Red de dispositivos físicos conectados a internet que recopilan e intercambian datos entre sí sin intervención humana. CamClouds7 se integra con dispositivos IoT para ofrecer vigilancia inteligente y monitoreo en tiempo real.", den: "Network of physical devices connected to the internet that collect and exchange data with each other without human intervention. CamClouds7 integrates with IoT devices to provide intelligent surveillance and real-time monitoring." },
+  { t: "Metroidvania", d: "Subgénero de videojuegos de acción y exploración caracterizado por mapas interconectados y progresión no lineal. Nine Years of Shadows se inscribe en este género, siguiendo la estructura y mecánicas que popularizaron juegos como Castlevania y Metroid.", den: "Action-exploration video game subgenre characterized by interconnected maps and non-linear progression. Nine Years of Shadows belongs to this genre, following the structure and mechanics popularized by games like Castlevania and Metroid." }
 ];
 
 function renderGlosario(filter = '') {
@@ -46,18 +48,20 @@ function renderGlosario(filter = '') {
   const q = filter.toLowerCase().trim();
   let visible = 0;
   grid.innerHTML = '';
-  terminos.forEach(({ t, d }) => {
-    const matches = !q || t.toLowerCase().includes(q) || d.toLowerCase().includes(q);
+  terminos.forEach(({ t, d, den }) => {
+    const def = (currentLang === 'en' && den) ? den : d;
+    const matches = !q || t.toLowerCase().includes(q) || def.toLowerCase().includes(q);
     const div = document.createElement('div');
     div.className = 'glosa-item' + (matches ? ' visible' : '');
-    div.innerHTML = `<div class="glosa-term">${t}</div><p class="glosa-def">${d}</p>`;
+    div.innerHTML = `<div class="glosa-term">${t}</div><p class="glosa-def">${def}</p>`;
     grid.appendChild(div);
     if (matches) visible++;
   });
   document.getElementById('glosarioCounter').textContent =
-    q ? `${visible} de ${terminos.length} términos encontrados` : `${terminos.length} términos en total`;
+    q ? `${visible} ${currentLang === 'en' ? 'of' : 'de'} ${terminos.length} ${currentLang === 'en' ? 'terms found' : 'términos encontrados'}` : `${terminos.length} ${currentLang === 'en' ? 'terms total' : 'términos en total'}`;
 }
 
+let currentLang = 'es';
 function filterGlosario(val) { renderGlosario(val); }
 renderGlosario();
 
@@ -69,7 +73,6 @@ const observer = new IntersectionObserver(entries => {
 revealEls.forEach(el => observer.observe(el));
 
 
-let currentLang = 'es';
 
 
 const TRANSLATIONS = {
@@ -260,4 +263,7 @@ function setLang(lang) {
 
   // 4. lang del html
   document.documentElement.lang = lang;
+
+  // 5. Re-renderizar glosario con el idioma actualizado
+  renderGlosario(document.getElementById('searchInput')?.value || '');
 }
