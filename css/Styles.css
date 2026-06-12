@@ -19,7 +19,7 @@
     color: var(--oscuro);
     overflow-x: hidden;
   }
-
+ 
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -43,7 +43,7 @@
     transition: color .2s;
   }
   .nav-links a:hover { color: var(--azul); }
-
+ 
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -145,7 +145,7 @@
     background: var(--azul); border-radius: 50%;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-
+ 
   /* ── SECTION BASE ── */
   section { padding: 6rem 5vw; }
   .section-label {
@@ -167,7 +167,7 @@
     border-radius: 2px;
     margin-bottom: 2rem;
   }
-
+ 
   /* ── QUÉ ES COLOMBIA 5.0 ── */
   .que-es { background: var(--blanco); }
   .que-es-grid {
@@ -177,7 +177,7 @@
     align-items: start;
     max-width: 1200px;
   }
-
+  
   .que-es-left p {
     font-size: 1.05rem; line-height: 1.8;
     color: #444; margin-bottom: 1.25rem;
@@ -208,7 +208,7 @@
     margin-bottom: 0.4rem;
   }
   .pilar p { font-size: 0.83rem; color: var(--gris); line-height: 1.5; }
-
+ 
   .timeline { position: relative; padding-left: 1.5rem; }
   .timeline::before {
     content: '';
@@ -235,7 +235,7 @@
     font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem;
   }
   .tl-item p { font-size: 0.85rem; color: var(--gris); line-height: 1.6; }
-
+ 
   /* ── CONFERENCIA ── */
   .conferencia { background: var(--crema); }
   .conf-header {
@@ -263,7 +263,7 @@
     margin-top: 0.75rem;
   }
   .conf-meta span { display: flex; align-items: center; gap: 5px; }
-
+ 
   /* Bloque resumen único con tabs */
   .resumen-bloque {
     background: var(--blanco);
@@ -319,7 +319,7 @@
     margin-bottom: 0.75rem;
   }
   .resumen-panel p { font-size: 0.93rem; line-height: 1.8; color: #555; }
-
+ 
   /* Gallery */
   .gallery-section { margin-top: 3rem; }
   .gallery-section h3 {
@@ -338,13 +338,6 @@
     background: #EDEAE0;
     border: 1px solid rgba(0,0,0,0.07);
   }
-   .photo-video video {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-   
-   
-    }
   .photo-card img {
     width: 100%; aspect-ratio: 4/3;
     object-fit: cover; display: block;
@@ -353,19 +346,18 @@
     font-size: 0.78rem; color: var(--gris);
     padding: 8px 12px; margin: 0;
   }
-
-
  
+  /* ── GLOSARIO ── */
   .glosario { background: var(--oscuro); color: #fff; }
   .glosario .section-label { color: rgba(255,255,255,0.4); }
   .glosario .section-title { color: #fff; }
   .glosario .accent-line { background: var(--amarillo); }
-
+ 
   .glosario-intro {
     font-size: 1rem; color: rgba(255,255,255,0.6);
     max-width: 600px; margin-bottom: 3rem; line-height: 1.75;
   }
-
+ 
   .glosario-search {
     display: flex; align-items: center; gap: 12px;
     background: rgba(255,255,255,0.06);
@@ -382,7 +374,7 @@
     font-size: 0.95rem; width: 100%;
   }
   .glosario-search input::placeholder { color: rgba(255,255,255,0.35); }
-
+ 
   .glosario-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -417,12 +409,12 @@
     font-size: 0.83rem; color: rgba(255,255,255,0.6);
     line-height: 1.65;
   }
-
+ 
   .glosario-counter {
     margin-top: 1.5rem;
     font-size: 0.82rem; color: rgba(255,255,255,0.35);
   }
-
+ 
   /* ── FOOTER ── */
   footer {
     background: #050505;
@@ -432,7 +424,7 @@
     font-size: 0.82rem;
   }
   footer strong { color: var(--amarillo); }
-
+ 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; padding: 120px 5vw 80px; }
@@ -450,14 +442,16 @@
   @media (max-width: 500px) {
     .gallery-grid { grid-template-columns: 1fr 1fr; }
   }
-
+ 
   /* Scroll reveal */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity: 1; transform: none; }
-.lang-toggle {
+ 
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
     display: flex;
-    background: rgba(0,0,0,0.25);
-    border: 1.5px solid rgba(255,255,255,0.18);
+    background: rgba(0,0,0,0.07);
+    border: 1.5px solid rgba(0,0,0,0.10);
     border-radius: 50px;
     overflow: hidden;
     margin-left: auto;
@@ -469,7 +463,7 @@
     padding: 6px 15px;
     border: none;
     background: transparent;
-    color: rgba(255,255,255,0.5);
+    color: rgba(0,0,0,0.4);
     font-size: 12px;
     font-weight: 800;
     cursor: pointer;
@@ -479,8 +473,8 @@
     font-family: 'Syne', sans-serif;
   }
   .lang-btn:hover:not(.active) {
-    color: rgba(255,255,255,0.85);
-    background: rgba(255,255,255,0.08);
+    color: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.05);
   }
   .lang-btn.active {
     background: #F5C518;
@@ -494,4 +488,13 @@
   }
   @media (max-width: 480px) {
     .nav-links { display: none; }
+  }
+ 
+  /* ── VIDEO fix: igual que .photo-card img ── */
+  .photo-video video {
+    width: 100%;
+    aspect-ratio: 4/3;
+    height: auto;
+    object-fit: cover;
+    display: block;
   }

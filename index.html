@@ -5,60 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Colombia 5.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Styles.css">
-<style>
-  /* ── LANG TOGGLE ── */
-  .lang-toggle {
-    display: flex;
-    background: rgba(0,0,0,0.25);
-    border: 1.5px solid rgba(255,255,255,0.18);
-    border-radius: 50px;
-    overflow: hidden;
-    margin-left: auto;
-    flex-shrink: 0;
-    gap: 2px;
-    padding: 3px;
-  }
-  .lang-btn {
-    padding: 6px 15px;
-    border: none;
-    background: transparent;
-    color: rgba(255,255,255,0.5);
-    font-size: 12px;
-    font-weight: 800;
-    cursor: pointer;
-    letter-spacing: 0.05em;
-    transition: all 0.22s ease;
-    border-radius: 50px;
-    font-family: 'Syne', sans-serif;
-  }
-  .lang-btn:hover:not(.active) {
-    color: rgba(255,255,255,0.85);
-    background: rgba(255,255,255,0.08);
-  }
-  .lang-btn.active {
-    background: #F5C518;
-    color: #111;
-    box-shadow: 0 2px 10px rgba(245,197,24,0.45);
-  }
-  @media (max-width: 768px) {
-    nav { flex-wrap: wrap; gap: 10px; padding: 12px 16px !important; }
-    .nav-links { order: 3; width: 100%; gap: 12px !important; flex-wrap: wrap; }
-    .lang-toggle { margin-left: 0; }
-  }
-  @media (max-width: 480px) {
-    .nav-links { display: none; }
-  }
-
-  /* ── VIDEO fix: igual que .photo-card img ── */
-  .photo-video video {
-    width: 100%;
-    aspect-ratio: 4/3;
-    height: auto;
-    object-fit: cover;
-    display: block;
-  }
-</style>
+<link rel="stylesheet" href="css/Styles.css">
 </head>
 <body>
 <!-- NAV -->
@@ -181,7 +128,7 @@
       </button>
       <button class="resumen-tab t-azul" onclick="switchTab(1)">
         <span class="tab-label-small" data-es="Tema principal" data-en="Main topic">Tema principal</span>
-        <span data-es="CamClouds7 - IA - OPEN SOURCE" data-en="CamClouds7 - AI - OPEN SOURCE">CamClouds7 - IA - OPEN SOURCE</span>
+        <span data-es="CamClouds7" data-en="CamClouds7">CamClouds7</span>
       </button>
       <button class="resumen-tab t-rojo" onclick="switchTab(2)">
         <span class="tab-label-small" data-es="Conclusion" data-en="Conclusion">Conclusion</span>
@@ -364,11 +311,9 @@
     <div class="resumen-tabs">
       <button class="resumen-tab t-amarillo active" onclick="switchTab2(0)">
         <span class="tab-label-small" data-es="Introduccion" data-en="Introduction">Introduccion</span>
-        <span data-es="Primer video juego" data-en="First video game">Primer video juego</span>
       </button>
       <button class="resumen-tab t-azul" onclick="switchTab2(1)">
         <span class="tab-label-small" data-es="Tema principal" data-en="Main topic">Tema principal</span>
-        <span data-es="Metodologia de desarrollo" data-en="Development methodology">Metodologia de desarrollo</span>
       </button>
       <button class="resumen-tab t-rojo" onclick="switchTab2(2)">
         <span class="tab-label-small" data-es="Conclusion" data-en="Conclusion">Conclusion</span>
@@ -546,7 +491,7 @@
 <footer>
   <p data-es="© 2025 Colombia 5.0 presentado por Gonzalo Garcia y Vannesa Castañeda" data-en="© 2025 Colombia 5.0 presented by Gonzalo Garcia and Vannesa Castañeda">© 2025 <strong>Colombia 5.0</strong> presentado por Gonzalo Garcia y Vannesa Castañeda</p>
 </footer>
-<script src="script.js"></script>
+<script src="Javascript/script.js"></script>
 
 </body>
 </html>
